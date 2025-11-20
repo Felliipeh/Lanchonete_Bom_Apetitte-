@@ -1,0 +1,9 @@
+[
+    { "bairro_nome": "Anjo da Guarda", "taxa_valor": 5.00 },
+    { "bairro_nome": "Vila Nova", "taxa_valor": 10.00 },
+    { "bairro_nome": "Áreas Vizinhas A Vila Nova", "taxa_valor": 10.00 },
+    { "bairro_nome": "Vila Embratel", "taxa_valor": 10.00 },
+    { "bairro_nome": "Vila Bacanga", "taxa_valor": 10.00 },
+    { "bairro_nome": "Gapara", "taxa_valor": 15.00 },
+    { "bairro_nome": "Centro", "taxa_valor": 20.00 }
+]

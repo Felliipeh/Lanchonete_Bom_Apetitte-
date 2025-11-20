@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lanchonete Bom Apetitte | Cardápio Digital</title>
+
+  <!-- icone da aba do navegador -->
+  <link rel="icon" type="image/png" href="/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.6.2/fuse.min.js"></script>
+  <script src="./index.js" defer></script>
+</head>
+
+<body>
+  <!-- Loader Spinner removido: agora o skeleton loader dos cards faz o papel de carregamento visual. -->
+  <header class="main-header">
+    <div class="header-content-wrapper">
+      <div class="logo-area">
+        <a href="/" aria-label="Página Inicial - Churrasquinho da Nilde" class="logo-link">
+          <img src="logo.png" alt="Logo" class="logo-img" width="40" height="40" />
+          <h1 class="brand-name">Lanchonete Bom Apetitte</h1>
+        </a>
+      </div>
+
+      <div id="statusFuncionamento" class="status-funcionamento" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="search-area">
+      <div class="search-bar">
+        <label for="searchInput" class="sr-only">Buscar produto...</label>
+        <input type="text" id="searchInput" placeholder="Buscar produto por nome..."
+          aria-label="Buscar produto no cardápio" />
+        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+      </div>
+    </div>
+  </header>
+
+  <nav class="categories-nav" id="categoriesNav" aria-label="Filtro de Categorias do Cardápio">
+  </nav>
+
+  <main id="mainContent">
+    <section class="products-grid-container" aria-labelledby="products-heading">
+      <h2 id="products-heading" class="sr-only">Produtos Disponíveis</h2>
+      <div class="products-grid" id="products">
+        <div class="product-card" aria-labelledby="product1-title">
+          <div class="product-img-wrapper">
+            <img src="CAMINHO_DA_IMAGEM_PRO" alt="Imagem do produto" class="product-img">
+            <img src="i" alt="Siri apontando para o preço" class="siri-pointer">
+          </div>
+          <div class="product-info">
+            <h3 id="product1-title" class="product-title">Produto 1</h3>
+            <p class="product-description">Descrição do Produto 1</p>
+            <div class="product-price" aria-label="Preço do Produto 1">
+              <span class="price-amount">R$ 10,00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+    <span class="cart-count" id="cartCount">0</span>
+    <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+    <span class="fab-text">Veja seu carrinho</span>
+  </button>
+
+  <aside id="cartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-label="Detalhes do Carrinho">
+    <div class="cart-header">
+      <h3 class="drawer-title"><i class="fa-solid fa-cart-shopping"></i> Seu Carrinho</h3>
+      <button id="closeDrawerBtn" class="cart-close" aria-label="Fechar Carrinho">&times;</button>
+    </div>
+
+    <ul class="cart-items-list" id="cartItemsList">
+      <p class="empty-cart-message">Seu carrinho está vazio.</p>
+    </ul>
+
+    <div class="drawer-footer">
+      <div class="cart-total-display">Total: <span id="cartGrandTotal">R$ 0,00</span></div>
+      <button id="checkoutBtn" class="cart-finish-btn" disabled>Finalizar Pedido</button>
+    </div>
+  </aside>
+
+  <div id="customModal" class="custom-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalProductName">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close" aria-label="Fechar Personalização">
+        &times;
+      </button>
+
+      <div class="modal-product-detail">
+        <img id="modalProductImg" class="modal-img" src="" alt="Imagem do produto selecionado" width="100"
+          height="100" />
+        <h2 id="modalProductName" class="modal-title"></h2>
+        <p id="modalProductDesc" class="modal-description"></p>
+      </div>
+
+      <form id="productCustomizationForm">
+        <input type="hidden" id="editingItemId" name="editingItemId" value="">
+
+        <section id="modalVariationsSection" class="modal-section" data-optional="false">
+          <div class="section-header" data-target="#modalVariations">
+            <span class="section-heading">1. Variação Principal</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div id="modalVariations" class="section-content expanded">
+          </div>
+        </section>
+
+        <section id="modalFlavorsSection" class="modal-section" data-optional="false">
+          <div class="section-header" data-target="#modalFlavors">
+            <span class="section-heading">2. Escolha o Sabor</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div id="modalFlavors" class="section-content expanded">
+          </div>
+        </section>
+
+        <section id="modalAdditionalsSection" class="modal-section" data-optional="true">
+          <div class="section-header collapsed" data-target="#modalAdditionals">
+            <span class="section-heading">3. Adicionais <small>(Opcional)</small></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div id="modalAdditionals" class="section-content">
+          </div>
+        </section>
+
+        <div class="modal-notes-area">
+          <label for="modalObs" class="section-heading">4. Observações Especiais <small>(Opcional)</small></label>
+          <textarea id="modalObs" placeholder="Ex: Sem cebola, pão de alho extra, etc." rows="3"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <div class="modal-qty-control">
+            <button type="button" id="modalQtyMinus" aria-label="Diminuir quantidade">-</button>
+            <span id="modalQty" role="status" aria-live="polite">1</span>
+            <button type="button" id="modalQtyPlus" aria-label="Aumentar quantidade">+</button>
+          </div>
+          <div class="modal-qty-info">
+            <i class="fa-solid fa-circle-info" aria-hidden="true" style="color: #e94d0c; margin-right: 6px;"></i>
+            <span>
+              Todos iguais. Personalize um por vez.
+            </span>
+          </div>
+
+          <div class="modal-total" role="status" aria-live="polite">
+            Total: <span id="modalTotal">R$ 0,00</span>
+          </div>
+
+          <button type="submit" id="modalConfirmBtn" class="modal-confirm">
+            Adicionar ao carrinho
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div id="checkoutModal" class="custom-modal hidden" role="dialog" aria-modal="true"
+    aria-labelledby="checkout-heading">
+    <div class="modal-content">
+      <button id="checkoutCloseBtn" class="modal-close" aria-label="Fechar Checkout">
+        &times;
+      </button>
+
+      <h2 id="checkout-heading" class="modal-title">Finalizar Pedido</h2>
+
+      <form id="checkoutForm">
+        <!-- Steps Navigation -->
+        <div class="steps-indicator">
+          <span class="step-dot step-active" data-step="1"></span>
+          <span class="step-dot" data-step="2"></span>
+          <span class="step-dot" data-step="3"></span>
+          <span class="step-dot" data-step="4"></span>
+        </div>
+
+        <!-- Step 1: Dados Pessoais -->
+        <section class="modal-section checkout-step" id="checkoutStep1" aria-labelledby="client-info-heading">
+          <h3 id="client-info-heading" class="section-heading">Seus Dados</h3>
+          <div class="input-group">
+            <label for="clientName">Nome e Sobrenome:</label>
+            <input type="text" id="clientName" name="name" required placeholder="Ex: João Silva">
+            <div class="input-error-msg"></div>
+          </div>
+          <div class="input-group">
+            <label for="clientPhone">Telefone (WhatsApp):</label>
+            <input type="tel" id="clientPhone" name="phone" required placeholder="(99) 99999-9999"
+              pattern="\(\d{2}\) \d{5}-\d{4}">
+            <div class="input-error-msg"></div>
+          </div>
+        </section>
+
+        <!-- Step 2: Entrega -->
+        <section class="modal-section checkout-step" id="checkoutStep2" aria-labelledby="delivery-heading"
+          style="display:none;">
+          <h3 id="delivery-heading" class="section-heading">Entrega</h3>
+          <div class="radio-group">
+            <div class="delivery-option">
+              <input type="radio" id="deliveryOption" name="deliveryType" value="delivery" checked>
+              <label for="deliveryOption">Delivery</label>
+            </div>
+            <div class="delivery-option">
+              <input type="radio" id="pickupOption" name="deliveryType" value="pickup">
+              <label for="pickupOption">Retirada</label>
+            </div>
+          </div>
+          <div id="deliveryAddressFields">
+            <div class="input-group">
+              <label for="clientAddress">Endereço:</label>
+              <input type="text" id="clientAddress" name="address" placeholder="Rua, Número, Bairro" required>
+              <div class="input-error-msg"></div>
+            </div>
+            <div class="input-group">
+              <label for="clientComplement">Complemento:</label>
+              <input type="text" id="clientComplement" name="complement" placeholder="Apto, Bloco, Referência">
+            </div>
+            <div class="input-group">
+              <label for="bairro-select">Bairro:</label>
+              <select id="bairro-select" name="bairro" required></select>
+              <div class="input-error-msg"></div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Step 3: Revisão -->
+        <section class="modal-section checkout-step" id="checkoutStep3" aria-label="Revisão do Pedido"
+          style="display:none;">
+          <h3 class="section-heading">Revisar Pedido</h3>
+          <div class="modal-total" role="status">
+            Subtotal: <span id="checkoutGrandTotal">R$ 0,00</span><br>
+            Taxa de Entrega: <span id="checkoutTaxaDisplay">R$ 0,00</span><br>
+            <strong>Total Final: <span id="checkoutFinalTotal">R$ 0,00</span></strong>
+          </div>
+        </section>
+
+        <!-- Step 4: Pagamento -->
+        <section class="modal-section checkout-step" id="checkoutStep4" aria-labelledby="payment-heading"
+          style="display:none;">
+          <div class="modal-total" style="margin-bottom: 1em;">
+            <strong>Total Final: <span id="checkoutFinalTotalPagamento">R$ 0,00</span></strong>
+          </div>
+          <h3 id="payment-heading" class="section-heading">Forma de Pagamento</h3>
+          <div class="radio-group">
+            <div class="payment-option">
+              <input type="radio" id="payPix" name="paymentMethod" value="pix" checked>
+              <label for="payPix">PIX</label>
+            </div>
+            <div class="payment-option">
+              <input type="radio" id="payCard" name="paymentMethod" value="card">
+              <label for="payCard">Cartão (Débito/Crédito)</label>
+            </div>
+            <div class="payment-option">
+              <input type="radio" id="payCash" name="paymentMethod" value="cash">
+              <label for="payCash">Dinheiro</label>
+            </div>
+            <div class="input-group" id="trocoField" style="display:none; margin-top: 0.5em;">
+
+              <label for="trocoInput">Qual valor você irá pagar?</label>
+              <input type="number" min="0" step="0.01" id="trocoInput" placeholder="Ex: 50,00">
+              <div class="input-error-msg"></div>
+            </div>
+          </div>
+          <div class="checkout-info-msg">
+            <i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 6px;"></i>
+            Após finalizar, você será direcionado ao WhatsApp do estabelecimento com o pedido já formatado. Basta
+            conferir e apertar o botão de enviar no WhatsApp.
+          </div>
+        </section>
+
+        <!-- Navegação dos Steps -->
+        <div class="modal-footer steps-footer">
+          <button type="button" id="stepNextBtn" class="modal-confirm">Próximo</button>
+          <button type="submit" id="stepFinishBtn" class="modal-confirm" style="display:none;">Fazer Pedido no
+            WhatsApp</button>
+          <button type="button" id="stepBackBtn" class="modal-confirm" style="display:none;">Voltar</button>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+
+  <!-- Modal de confirmação de pedido (inicia oculto) -->
+  <div id="orderConfirmModal" class="custom-modal hidden" role="dialog" aria-modal="true"
+    aria-labelledby="orderConfirmTitle">
+    <div class="modal-content">
+      <h2 id="orderConfirmTitle" class="modal-title">Pedido pronto para envio!</h2>
+      <div class="modal-description" style="margin-bottom: 1.2em;">
+        Seu pedido foi formatado e será aberto no WhatsApp.<br>
+        <strong>Confira e aperte o botão de enviar no WhatsApp para finalizar!</strong><br>
+        <span style="color:#25d366;font-size:1.5em;"><i class="fa-brands fa-whatsapp"></i></span>
+      </div>
+      <button id="orderConfirmOkBtn" class="modal-confirm">Ok, abrir WhatsApp</button>
+    </div>
+  </div>
+</body>
+
+</html>

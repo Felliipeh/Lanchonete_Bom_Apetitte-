@@ -1,0 +1,234 @@
+[
+  {
+    "id": 1,
+    "nome": "Hambúrguer Tradicional",
+    "descricao": "Carne, alface, tomate, ovo, queijo e batata palha.",
+    "precoBase": 14.00,
+    "categoria": "Hambúrguer",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 2,
+    "nome": "X-Calabresa",
+    "descricao": "Carne, alface, tomate, ovo, queijo, calabresa e batata palha.",
+    "precoBase": 16.00,
+    "categoria": "Hambúrguer",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 3,
+    "nome": "X-Bacon",
+    "descricao": "Carne, alface, tomate, ovo, queijo, bacon e batata palha.",
+    "precoBase": 18.00,
+    "categoria": "Hambúrguer",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 4,
+    "nome": "X-Tudo",
+    "descricao": "Carne, alface, tomate, ovo, queijo, calabresa, bacon, presunto e batata palha.",
+    "precoBase": 20.00,
+    "categoria": "Hambúrguer",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 5,
+    "nome": "Hot Dog Tradicional",
+    "descricao": "Salsicha, carne, milho, ervilha, queijo ralado e batata palha.",
+    "precoBase": 10.00,
+    "categoria": "Hot Dog",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 6,
+    "nome": "Hot Bacon",
+    "descricao": "Salsicha, carne, bacon, presunto, ervilha, milho, queijo ralado e batata palha.",
+    "precoBase": 12.00,
+    "categoria": "Hot Dog",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 7,
+    "nome": "Combo Hot Premium",
+    "descricao": "1 Hot Dog Tradicional, 1 Refri 250ml, 1 Batata Frita.",
+    "precoBase": 18.00,
+    "categoria": "Combo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 8,
+    "nome": "Combo Burguer Premium",
+    "descricao": "1 Hambúrguer Tradicional, 1 Refri 250ml, 1 Batata Frita.",
+    "precoBase": 22.00,
+    "categoria": "Combo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 9,
+    "nome": "Combo Hot Duplo",
+    "descricao": "2 Hot Dog Tradicional, 2 Refri 250ml, 1 Batata Frita.",
+    "precoBase": 30.00,
+    "categoria": "Combo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 10,
+    "nome": "Combo Hot-Burguer Duplo",
+    "descricao": "1 Hot Dog Tradicional, 1 Hambúrguer Tradicional, 2 Refri 250ml, 1 Batata Frita.",
+    "precoBase": 33.00,
+    "categoria": "Combo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 11,
+    "nome": "Combo Burguer Duplo",
+    "descricao": "2 Hambúrguer Tradicional, 2 Refri 250ml, 1 Batata Frita.",
+    "precoBase": 37.00,
+    "categoria": "Combo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 12,
+    "nome": "Suco Goiaba 300ml",
+    "descricao": "Suco natural de goiaba.",
+    "precoBase": 5.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 13,
+    "nome": "Suco Acerola 300ml",
+    "descricao": "Suco natural de acerola.",
+    "precoBase": 5.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 14,
+    "nome": "Suco Abacaxi 300ml",
+    "descricao": "Suco natural de abacaxi.",
+    "precoBase": 6.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 15,
+    "nome": "Suco Cupuaçu 300ml",
+    "descricao": "Suco natural de cupuaçu.",
+    "precoBase": 7.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 16,
+    "nome": "Suco Bacuri 300ml",
+    "descricao": "Suco natural de bacuri.",
+    "precoBase": 7.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 17,
+    "nome": "Suco Maracujá 300ml",
+    "descricao": "Suco natural de maracujá.",
+    "precoBase": 7.00,
+    "categoria": "Suco",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 18,
+    "nome": "Pastel Carne",
+    "descricao": "Pastel de carne.",
+    "precoBase": 6.00,
+    "categoria": "Pastel",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 19,
+    "nome": "Pastel Queijo",
+    "descricao": "Pastel de queijo.",
+    "precoBase": 6.00,
+    "categoria": "Pastel",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 20,
+    "nome": "Pastel Pizza",
+    "descricao": "Pastel de pizza.",
+    "precoBase": 6.00,
+    "categoria": "Pastel",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 21,
+    "nome": "Pastel Misto",
+    "descricao": "Pastel misto.",
+    "precoBase": 6.00,
+    "categoria": "Pastel",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 22,
+    "nome": "Misto Quente",
+    "descricao": "Misto quente.",
+    "precoBase": 8.00,
+    "categoria": "Lanche",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 23,
+    "nome": "Batata Frita 200g",
+    "descricao": "Batata frita 200g.",
+    "precoBase": 8.00,
+    "categoria": "Batata Frita",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 24,
+    "nome": "Batata Frita 300g",
+    "descricao": "Batata frita 300g.",
+    "precoBase": 13.00,
+    "categoria": "Batata Frita",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 25,
+    "nome": "Batata Frita Recheada",
+    "descricao": "Batata frita, calabresa e molho especial.",
+    "precoBase": 18.00,
+    "categoria": "Batata Frita",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 26,
+    "nome": "Caldo de Ovos",
+    "descricao": "Caldo de ovos (aos sábados e domingos).",
+    "precoBase": 7.00,
+    "categoria": "Caldo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 27,
+    "nome": "Caldo de Macaxeira",
+    "descricao": "Caldo de macaxeira (aos sábados e domingos).",
+    "precoBase": 8.00,
+    "categoria": "Caldo",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 28,
+    "nome": "Lasanha Média 750g",
+    "descricao": "Lasanha ao molho branco, carne e frango.",
+    "precoBase": 25.00,
+    "categoria": "Lasanha",
+    "imagemUrl": "imagens/image.png"
+  },
+  {
+    "id": 29,
+    "nome": "Lasanha Grande 1kg",
+    "descricao": "Lasanha ao molho branco, carne e frango.",
+    "precoBase": 35.00,
+    "categoria": "Lasanha",
+    "imagemUrl": "imagens/image.png"
+  }
+]
