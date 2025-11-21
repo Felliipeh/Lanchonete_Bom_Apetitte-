@@ -4,7 +4,7 @@
     "terça":     { "abertura": "18:00", "fechamento": "23:00" },
     "quarta":    { "abertura": null,    "fechamento": null },
     "quinta":    { "abertura": "08:00", "fechamento": "23:00" },
-    "sexta":     { "abertura": "18:00", "fechamento": "23:00" },
+    "sexta":     { "abertura": "08:00", "fechamento": "23:00" },
     "sábado":    { "abertura": "18:00", "fechamento": "23:00" },
     "domingo":   { "abertura": "18:00", "fechamento": "23:00" }
   },
