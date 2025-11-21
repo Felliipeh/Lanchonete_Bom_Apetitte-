@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const CHECKOUT_CLOSE_BTN = document.getElementById('checkoutCloseBtn');
     const DELIVERY_FIELDS = document.getElementById('deliveryAddressFields');
     const DELIVERY_OPTIONS = CHECKOUT_FORM.querySelectorAll('input[name="deliveryType"]');
-    const ESTABLISHMENT_WHATSAPP = "559884021537"; // Número atualizado do estabelecimento
+    const ESTABLISHMENT_WHATSAPP = "559881799111"; // Número atualizado do estabelecimento
 
     // Taxa de Entrega e Checkout
     const BAIRRO_SELECT = document.getElementById('bairro-select');
